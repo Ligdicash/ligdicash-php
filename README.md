@@ -8,7 +8,7 @@ Vous retrouverez la documentation de l'API de LigdiCash sur [https://developers.
 ## Installation
 
 ```bash
-composer install ligdicash/ligdicash
+composer require ligdicash/ligdicash
 ```
 
 ## Initialisation
