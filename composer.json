@@ -1,0 +1,32 @@
+{
+  "name": "ligdicash/ligdicash",
+  "description": "Librairie PHP pour manipuler l'API de paiement de LigdiCash",
+  "type": "library",
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "Ligdicash\\": "src/"
+    },
+    "classmap": [
+      "src/Core/Providers.php",
+      "src/Core/Errors.php",
+      "src/Core/Payin.php",
+      "src/Core/Payout.php",
+      "src/Core/Responses.php"
+    ],
+    "files": [
+      "src/Core/Defaults.php",
+      "src/Core/Wiki.php",
+      "src/Core/Transaction.php"
+    ]
+  },
+  "authors": [
+    {
+      "name": "LigdiCash",
+      "email": "info@ligdicash.com"
+    }
+  ],
+  "require": {
+    "guzzlehttp/guzzle": "^7.8"
+  }
+}
