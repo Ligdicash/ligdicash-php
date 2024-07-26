@@ -54,7 +54,7 @@ class Withdrawal
         }
 
         $payload = ["commande" => $command];
-        $response = $this->provider->post("withdrawal/create", $payload, $type === "client" ? "client_payout" : "merchant_payout");
+        $response = $this->provider->post($type === "client" ? "withdrawal/create" : "straight/payout", $payload, $type === "client" ? "client_payout" : "merchant_payout");
         return BaseResponse::fromArray($response);
     }
 }

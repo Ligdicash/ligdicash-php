@@ -41,8 +41,8 @@ $invoice = $client->Invoice([
     "customer_firstname" => "John",
     "customer_lastname" => "Doe",
     "customer_email" => "jonh@doe.com",
-    "store_name" => "My Store",
-    "store_website_url" => "https://mystore.com"
+    "store_name" => "Ma boutique",
+    "store_website_url" => "https://masuperboutique.com"
 ]);
 
 # Ajouter des éléments(produit, service, etc) à la facture
@@ -83,7 +83,7 @@ $response = $invoice->payWithRedirection([
     ]
 ]);
 
-$payment_url = response.response_text;
+$payment_url = response->response_text;
 header("Location: $payment_url");
 ```
 
@@ -101,7 +101,7 @@ $response = $invoice->payWithoutRedirection([
     ]
 ]);
 
-const token = response.token;
+const token = response->token;
 check_payment_status(token);
 ```
 
@@ -125,7 +125,7 @@ $transaction = $withdrawal->send([
     "callback_url" => "https://backend.masuperboutique.com/callback-payout",
 ]);
 
-$token = transaction.token;
+$token = transaction->token;
 check_payment_status(token);
 ```
 
@@ -141,7 +141,7 @@ $transaction_token = "eyJ0eXAiOiJ...pZCI6IjY"
 
 $transaction = $client->getTransaction([
     "token" => $token,
-    "type" => "payout" # "payin" ou "payout"
+    "type" => "client_payout" # "payin" ou "client_payout" ou "merchant_payout"
 ]);
 
 $status = $transaction->status;

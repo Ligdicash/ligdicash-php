@@ -21,7 +21,7 @@ function get_transaction(
     $provider = new HTTPProvider($configs);
 
     // Construction de l'URL en fonction du type de transaction
-    $url = ($type == "payin") ? "redirect/checkout-invoice/confirm/?invoiceToken=$token" : "withdrawal/confirm/?withdrawalToken=$token";
+    $url = $type == "payin" ? "redirect/checkout-invoice/confirm/?invoiceToken=$token" : ($type == "client_payout" ? "withdrawal/confirm/?withdrawalToken=$token" : "straight/payout/confirm/?payoutToken=$token");
 
     // Envoi de la requête GET à l'API
     $response = $provider->get($url, "status");
